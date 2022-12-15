@@ -1,9 +1,9 @@
 import tkinter as tk
 
 """ 
-===================
-Funciones a Ocupar:
-===================
+======================
+Creacion de Funciones:
+======================
 """
 
 def convertirTemperatura():
@@ -29,21 +29,49 @@ def convertirTemperatura():
 
         if seleccionSalida[0] == 0:
             salida.delete(0, tk.END)
-            salida.insert(0, f"{temperaturaInicial}°")
+            salida.insert(0, f"{temperaturaInicial}°C")
         
         if seleccionSalida[0] == 1:
             temperaturaFahrenheit = temperaturaInicial * 1.8 + 32
             salida.delete(0, tk.END)
-            salida.insert(0, f"{temperaturaFahrenheit}°")
+            salida.insert(0, f"{temperaturaFahrenheit}°F")
 
         if seleccionSalida[0] == 2:
             temperaturaKelvin = temperaturaInicial + 273.15
             salida.delete(0, tk.END)
-            salida.insert(0, f"{temperaturaKelvin}°")
+            salida.insert(0, f"{temperaturaKelvin} K")
 
+    if seleccionEntrada[0] == 1:
 
-    # temperaturaKelvin = temperaturaCelcius + 273.15
-    # temperaturaFahrenheit = temperaturaCelcius * 1.8 + 32
+        if seleccionSalida[0] == 0:
+            temperaturaCelsius = (temperaturaInicial - 32) / 1.8
+            salida.delete(0, tk.END)
+            salida.insert(0, f"{temperaturaCelsius}°C")
+        
+        if seleccionSalida[0] == 1:
+            salida.delete(0, tk.END)
+            salida.insert(0, f"{temperaturaInicial}°F")
+
+        if seleccionSalida[0] == 2:
+            temperaturaKelvin = ((temperaturaInicial - 32) / 1.8) + 273.15
+            salida.delete(0, tk.END)
+            salida.insert(0, f"{temperaturaKelvin} K")
+
+    if seleccionEntrada[0] == 2:
+
+        if seleccionSalida[0] == 0:
+            temperaturaCelsius = temperaturaInicial - 273.15
+            salida.delete(0, tk.END)
+            salida.insert(0, f"{temperaturaCelsius}°C")
+        
+        if seleccionSalida[0] == 1:
+            temperaturaFahrenheit = 1.8 * (temperaturaInicial - 273.15) + 32
+            salida.delete(0, tk.END)
+            salida.insert(0, f"{temperaturaFahrenheit}°F")
+
+        if seleccionSalida[0] == 2:
+            salida.delete(0, tk.END)
+            salida.insert(0, f"{temperaturaInicial} K")
 
 def onEnter(event):
     convertirTemperatura()
@@ -85,9 +113,9 @@ var = tk.Variable(value=lista)
 temperaturaEntrada = tk.StringVar(ventanaPrincipal)
 
 """ 
-==============
-Widgets a Usar
-============== 
+===================
+Creacion de Widgets
+===================
 """
 
 etiqueta1 = tk.Label(
